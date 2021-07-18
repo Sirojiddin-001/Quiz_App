@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./assets/uikit/css/uikit.css">
+    <link rel="stylesheet" href="./assets/ui/css/style.css">
+    <link rel="stylesheet" href="./assets/ui/css/atom-one-dark-reasonable.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+    <script src="./assets/uikit/js/uikit.min.js"></script>
+    <script src="./assets/uikit/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="uk-navbar-container uk-margin" uk-sticky uk-navbar="mode: click">
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="#">QUIZ</a>
+
+                <!-- <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li>
+                        <a href="#">Parent</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#">Active</a></li>
+                                <li><a href="#">Item</a></li>
+                                <li><a href="#">Item</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Item</a></li>
+                </ul> -->
+
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li><a href="##" uk-icon="user"></a></li>
+                    <li><a href="##" uk-icon="cog"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="category" class="uk-padding uk-child-width-1-3@m uk-grid-match" uk-grid></div>
+        <div id="modal-full" class="uk-modal-full" uk-modal>
+            <div class="uk-modal-dialog uk-height-1-1">
+                <button id="close_quiz" class="uk-modal-close-full uk-close-large uk-hidden" type="button"
+                    uk-close></button>
+                <div class="uk-height-1-1 uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-width-1-1">
+                    <div
+                        class="uk-height-1-1 uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-card uk-card-default uk-width-1-2@m">
+                        <div class="uk-card-header uk-width-1-1 quiz_head">
+                            <div class="uk-flex uk-flex-between	uk-flex-middle">
+                                <legend id="quiz_name" class="uk-legend">&nbsp;</legend>
+                                <span id="timer"></span>
+                                <span id="counter" class="uk-width-1-1 uk-text-right">&nbsp;</span>
+                            </div>
+                            <div class="progress">
+                                <span class="bar"><span class="fill"></span></span>
+                            </div>
+                        </div>
+                        <div class="uk-height-1-1 uk-width-1-1 uk-card-body uk-position-relative quiz_body">
+                            <div id="question" class="uk-margin-medium-bottom">&nbsp;</div>
+                            <div id="options_block" class="uk-flex uk-flex-column">
+                                <div class="option">&nbsp;</div>
+                                <div class="option">&nbsp;</div>
+                            </div>
+                            <div class="full uk-hidden">
+                                <p id="score" class="uk-margin-medium-top"></p>
+                            </div>
+                        </div>
+                        <div class="uk-card-footer uk-width-1-1">
+                            <div class="uk-flex uk-flex-between uk-width-1-1 quiz_footer">
+                                <button disabled id="check"
+                                    class="uk-button uk-button-success uk-width-1-1@s">Проверить</button>
+                                <button disabled id="prev"
+                                    class="uk-button uk-flex-first@s uk-button-default uk-width-1-1 uk-margin-right">
+                                    <span uk-icon="icon: chevron-left;ratio: 1.3"></span>
+                                </button>
+                                <button disabled id="next"
+                                    class="uk-button uk-button-default uk-width-1-1 uk-margin-left">
+                                    <span uk-icon="icon: chevron-right;ratio: 1.3"></span>
+                                </button>
+                                <button id="finished"
+                                    class="uk-button uk-button-danger uk-width-1-1 uk-hidden uk-margin-left">ЗАВЕРШИТЬ</button>
+                                <button id="repeat"
+                                    class="uk-button uk-button-primary uk-width-1-1 uk-hidden uk-margin-right">Повторить</button>
+                                <button id="exit"
+                                    class="uk-button uk-button-danger uk-width-1-1 uk-hidden uk-margin-left">Выход</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="./assets/ui/js/highlight.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script>
+        let firebaseConfig = {
+            apiKey: "AIzaSyDbs1-8C6N2wnpda9FWTIzdSCiXjAuAEho",
+            projectId: "test-130f5",
+            appId: "1:326851116449:web:20ec1ad9be86347401dfe0"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="./assets/ui/js/test.js"></script>
+</body>
+
+</html>
